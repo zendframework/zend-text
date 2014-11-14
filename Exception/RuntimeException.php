@@ -12,5 +12,4 @@ namespace Zend\Text\Exception;
 class RuntimeException
     extends \RuntimeException
     implements ExceptionInterface
-{
-}
+{}

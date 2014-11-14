@@ -12,5 +12,4 @@ namespace Zend\Text\Exception;
 class InvalidArgumentException
     extends \InvalidArgumentException
     implements ExceptionInterface
-{
-}
+{}
