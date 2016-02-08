@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>Tables - zend-text</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/zf.css" rel="stylesheet">
+    <link href="../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a href="http://framework.zend.com"><img src="../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="..">zend-text</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../figlet/">Figlets</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Tables</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="prev" href="../figlet/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-text">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#tables">Tables</a></li>
+        
+            <li><a href="#encoding">Encoding</a></li>
+        
+            <li><a href="#basic-usage">Basic Usage</a></li>
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="..">Docs</a> &raquo;</li>
+  
+    
+  
+  <li class="active">Tables</li>
+</ol>
+
+<nav class="hidden-lg">
+  <ul class="pager">
+    <li class="previous">
+      <a rel="prev" href="../figlet/"><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next disabled ">
+      <a rel="next" >Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+
+<h1 id="tables">Tables</h1>
+<p><code>Zend\Text\Table</code> is a component for creating text-based tables on the fly using
+decorators.  This can be helpful for sending structured data in text emails, or
+to display table information in a CLI application. <code>Zend\Text\Table</code> supports
+multi-line columns, column spans, and alignment.</p>
+<blockquote>
+<h2 id="encoding">Encoding</h2>
+<p><code>Zend\Text\Table</code> expects your strings to be UTF-8 encoded by default. If this
+is not the case, you can either supply the character encoding as a parameter
+to the constructor or the <code>setContent()</code> method of <code>Zend\Text\Table\Column</code>.
+Alternately, if you have a different encoding in the entire process, you can
+define the standard input charset with
+<code>Zend\Text\Table\Table::setInputCharset($charset)</code>. In case you need another
+output charset for the table, you can set it with
+<code>Zend\Text\Table\Table::setOutputCharset($charset)</code>.</p>
+</blockquote>
+<p>A <code>Zend\Text\Table\Table</code> object consists of rows which contain columns,
+represented by <code>Zend\Text\Table\Row</code> and <code>Zend\Text\Table\Column</code>, respectively.
+When creating a table, you can supply an array with options for the table.</p>
+<p>Options include:</p>
+<ul>
+<li><code>columnWidths</code> (required): An array defining all columns width their widths in characters.</li>
+<li><code>decorator</code>: The decorator to use for the table borders. The default is
+  <code>unicode</code>, but you may also specify <code>ascii</code> or give an instance of a custom
+  decorator object.</li>
+<li><code>padding</code>: The number of characters of left and right padding within the
+  columns. The default padding is zero.</li>
+<li><code>AutoSeparate</code>: How the rows are separated with horizontal lines; the default
+  is to separate all rows. This is defined as a bitmask containing one ore more
+  of the following <code>Zend\Text\Table</code> constants:</li>
+<li><code>Zend\Text\Table\Table::AUTO_SEPARATE_NONE</code></li>
+<li><code>Zend\Text\Table\Table::AUTO_SEPARATE_HEADER</code></li>
+<li><code>Zend\Text\Table\Table::AUTO_SEPARATE_FOOTER</code></li>
+<li><code>Zend\Text\Table\Table::AUTO_SEPARATE_ALL</code>
+  Where header is always the first row, and the footer is always the last row.</li>
+</ul>
+<p>Rows are added to the table by creating a new instance of <code>Zend\Text\Table\Row</code>
+and appending it to the table via the <code>appendRow()</code> method. Rows themselves have
+no options. You can also provide the <code>appendRow()</code> method with an array of
+options describing a row; these will then be automatically converted to a row
+object, containing multiple column objects.</p>
+<p>Adding columns follows the same process as adding rows.  Create a new instance
+of <code>Zend\Text\Table\Column</code> and then either set the column options in the
+constructor or later with the <code>set*()</code> methods. The first parameter is the
+content of the column; content may have multiple lines, which should be
+separated by <code>\n</code> characters. The second parameter defines the alignment, which
+is 'left' by default, but can be any of the following <code>Zend\Text\Table\Column</code>
+constant values:</p>
+<ul>
+<li><code>ALIGN_LEFT</code></li>
+<li><code>ALIGN_CENTER</code></li>
+<li><code>ALIGN_RIGHT</code></li>
+</ul>
+<p>The third parameter is the column span. For example, when you provide the value "2", the
+column will span two columns of the table.</p>
+<p>The last parameter defines the encoding of the content, which should be
+supplied only if the content is neither ASCII nor UTF-8.</p>
+<p>To append the column to the row, call <code>appendColumn()</code> in your row object with
+the column object as a parameter. Alternately, provide a string to the
+<code>appendColumn()</code> method.</p>
+<p>To render the table, use the <code>render()</code> method, or rely on the
+<code>__toString()</code> implementation to do implicit casting</p>
+<pre class="codehilite"><code class="language-php">echo $table;
+
+// or
+$tableString = (string) $table`;</code></pre>
+
+
+<h2 id="basic-usage">Basic Usage</h2>
+<pre class="codehilite"><code class="language-php">$table = new Zend\Text\Table\Table([
+    'columnWidths' =&gt; [10, 20]
+]);
+
+// Implicitly build rows, by supply an array of column values:
+$table-&gt;appendRow(['Zend', 'Framework']);
+
+// Or build the row and column manually:
+$row = new Zend\Text\Table\Row();
+
+$row-&gt;appendColumn(new Zend\Text\Table\Column('Zend'));
+$row-&gt;appendColumn(new Zend\Text\Table\Column('Framework'));
+
+$table-&gt;appendRow($row);
+
+echo $table;</code></pre>
+
+
+<p>The above results in the following output:</p>
+<pre class="codehilite"><code class="language-php">┌──────────┬────────────────────┐
+│Zend      │Framework           │
+|──────────|────────────────────|
+│Zend      │Framework           │
+└──────────┴────────────────────┘</code></pre>
+
+<hr />
+
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a rel="prev" href="../figlet/"><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next disabled ">
+      <a rel="next" >Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav></div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/prism-zf.js"></script>
+
+    <script>var base_url = '..';</script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
