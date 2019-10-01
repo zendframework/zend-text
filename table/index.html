@@ -297,13 +297,12 @@ the column object as a parameter. Alternately, provide a string to the
 <code>appendColumn()</code> method.</p>
 <p>To render the table, use the <code>render()</code> method, or rely on the
 <code>__toString()</code> implementation to do implicit casting</p>
-<pre class="codehilite"><code class="language-php">echo $table;
+<p> <pre class=codehilite><code class=language-php>echo $table;
 
 // or
-$tableString = (string) $table`;</code></pre>
-
+$tableString = (string) $table`;</code></pre></p>
 <h2 id="basic-usage">Basic Usage</h2>
-<pre class="codehilite"><code class="language-php">$table = new Zend\Text\Table\Table([
+<p> <pre class=codehilite><code class=language-php>$table = new Zend\Text\Table\Table([
     'columnWidths' =&gt; [10, 20]
 ]);
 
@@ -318,14 +317,13 @@ $row-&gt;appendColumn(new Zend\Text\Table\Column('Framework'));
 
 $table-&gt;appendRow($row);
 
-echo $table;</code></pre>
-
+echo $table;</code></pre></p>
 <p>The above results in the following output:</p>
-<pre class="codehilite"><code class="language-php">┌──────────┬────────────────────┐
+<p> <pre class=codehilite><code class=language-php>┌──────────┬────────────────────┐
 │Zend      │Framework           │
 |──────────|────────────────────|
 │Zend      │Framework           │
-└──────────┴────────────────────┘</code></pre>
+└──────────┴────────────────────┘</code></pre></p>
 
 
 
@@ -355,7 +353,7 @@ echo $table;</code></pre>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-text/edit/master/docs/table.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-text/edit/master/docs/book/table.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
