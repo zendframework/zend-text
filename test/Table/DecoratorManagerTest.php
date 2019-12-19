@@ -10,6 +10,7 @@ namespace ZendTest\Text\Table;
 use PHPUnit\Framework\TestCase;
 use Zend\ServiceManager\ServiceManager;
 use Zend\ServiceManager\Test\CommonPluginManagerTrait;
+use Zend\Text\Table\Decorator\Ascii;
 use Zend\Text\Table\Decorator\DecoratorInterface;
 use Zend\Text\Table\DecoratorManager;
 use Zend\Text\Table\Exception\InvalidDecoratorException;
@@ -31,5 +32,13 @@ class DecoratorManagerTest extends TestCase
     protected function getInstanceOf()
     {
         return DecoratorInterface::class;
+    }
+
+    public function testPluginManagerFactories()
+    {
+        $pluginManager = $this->getPluginManager();
+
+        self::assertTrue($pluginManager->has('zendtexttabledecoratorascii'));
+        self::assertInstanceOf(Ascii::class, $pluginManager->get('zendtexttabledecoratorascii'));
     }
 }
