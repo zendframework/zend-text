@@ -38,7 +38,7 @@ class DecoratorManagerTest extends TestCase
     {
         $pluginManager = $this->getPluginManager();
 
-        self::assertTrue($pluginManager->has('zendtexttabledecoratorascii'));
-        self::assertInstanceOf(Ascii::class, $pluginManager->get('zendtexttabledecoratorascii'));
+        self::assertTrue($pluginManager->has(Ascii::class));
+        self::assertInstanceOf(Ascii::class, $pluginManager->get(Ascii::class));
     }
 }

@@ -39,7 +39,7 @@ class DecoratorManager extends AbstractPluginManager
         Decorator\Ascii::class          => InvokableFactory::class,
         Decorator\Unicode::class        => InvokableFactory::class,
         Decorator\Blank::class          => InvokableFactory::class,
-        'zendtexttabledecoratorascii'   => InvokableFactory::class,
+        // 'zendtexttabledecoratorascii'   => InvokableFactory::class,
         'zendtexttabledecoratorblank'   => InvokableFactory::class,
         'zendtexttabledecoratorunicode' => InvokableFactory::class,
     ];
