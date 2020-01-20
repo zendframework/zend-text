@@ -2,7 +2,7 @@
 
 > ## Repository abandoned 2019-12-31
 >
-> This repository has moved to laminas/laminas-text.
+> This repository has moved to [laminas/laminas-text](https://github.com/laminas/laminas-text).
 
 [![Build Status](https://secure.travis-ci.org/zendframework/zend-text.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-text)
 [![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-text/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-text?branch=master)
