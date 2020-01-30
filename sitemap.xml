@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://docs.zendframework.com/zend-text/</loc>
-     <lastmod>2019-12-31</lastmod>
+     <loc>https://docs.zendframework.com/</loc>
+     <lastmod>2020-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.zendframework.com/zend-text/figlet/</loc>
-     <lastmod>2019-12-31</lastmod>
+     <loc>https://docs.zendframework.com/figlet/</loc>
+     <lastmod>2020-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.zendframework.com/zend-text/table/</loc>
-     <lastmod>2019-12-31</lastmod>
+     <loc>https://docs.zendframework.com/table/</loc>
+     <lastmod>2020-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
